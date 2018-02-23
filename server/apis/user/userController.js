@@ -1,68 +1,64 @@
-const User = require('./userModel');
-const _ = require('lodash');
-const signToken = require('../../auth').signToken;
+const User = require("./userModel");
+const _ = require("lodash");
+const signToken = require("../../auth").signToken;
 
-exports.params = function (req, res, next, id) {
+exports.params = function(req, res, next, id) {
   User.findById(id)
-    .select('-password')
+    .select("-password")
     .exec()
     .then(
-      (user) => {
+      user => {
         if (!user) {
-          next(new Error('No user with that id'));
+          next(new Error("No user with that id"));
         } else {
           req.user = user;
           next();
         }
       },
-      (err) => {
+      err => {
         next(err);
-      },
+      }
     );
 };
 
-exports.get = function (req, res, next) {
+exports.get = function(req, res, next) {
   User.find({})
-    .select('-password')
-    .exec()
-    .then(
-      (users) => {
-        res.json(users.map(user => user.toJson()));
-      },
-      (err) => {
-        next(err);
-      },
-    );
+    .select("-password")
+    .exec((err, data) => {
+      if (err) return next(err);
+      else res.json(data);
+    });
 };
 
-exports.getOne = function (req, res, next) {
+exports.getOne = function(req, res, next) {
   const user = req.user.toJson();
-  res.json(user.toJson());
+  res.json(user);
 };
 
-exports.put = function (req, res, next) {
+exports.put = function(req, res, next) {
   const user = req.user;
 
   const update = req.body;
 
   _.merge(user, update);
 
-  user.save((err, saved) => {
+  user.save((err, response) => {
     if (err) {
-      next(err);
+      return next(err);
     } else {
-      res.json(saved.toJson());
+      res.json(response);
     }
   });
 };
 
-exports.post = function (req, res, next) {
+exports.post = function(req, res, next) {
   const newUser = new User(req.body);
 
   newUser.save((err, user) => {
+    console.log({ err });
     if (err) {
-      console.log({err})
-      return next(err);
+      next(err);
+      return;
     }
 
     const token = signToken(user._id);
@@ -70,7 +66,7 @@ exports.post = function (req, res, next) {
   });
 };
 
-exports.delete = function (req, res, next) {
+exports.delete = function(req, res, next) {
   req.user.remove((err, removed) => {
     if (err) {
       next(err);
@@ -80,6 +76,6 @@ exports.delete = function (req, res, next) {
   });
 };
 
-exports.me = function (req, res) {
+exports.me = function(req, res) {
   res.json(req.user.toJson());
 };

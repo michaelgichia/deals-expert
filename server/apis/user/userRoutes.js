@@ -10,7 +10,7 @@ router.get("/me", checkUser, controller.me);
 
 router
   .route("/")
-  .get(controller.get)
+  .get(checkUser, controller.get) // Todo: Only admin should do this
   .post(controller.post);
 
 router
