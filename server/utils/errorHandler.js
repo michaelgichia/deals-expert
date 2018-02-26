@@ -3,7 +3,7 @@ module.exports = app =>
     console.log({ err });
 
     if (err.name === 'BulkWriteError') {
-      res.status(409).send({ error: 'The product title already exist.' });
+      res.status(409).send({ error: 'The item title already exist.' });
       return;
     }
     if (err.name === 'UnauthorizedError') {
@@ -15,7 +15,7 @@ module.exports = app =>
       return;
     }
     if (err.name === 'DocumentNotFoundError') {
-      res.status(401).send({ error: 'Product not saved!' });
+      res.status(401).send({ error: 'Item not saved!' });
       return;
     }
     if (err.name === 'OverwriteModelError') {
@@ -26,5 +26,5 @@ module.exports = app =>
       res.status(409).send({ error: err.errors });
       return;
     }
-    res.status(500).send({ error: 'Item not found' });
+    return res.status(500).send({ error: 'Item not found' });
   });
