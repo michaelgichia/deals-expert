@@ -1,21 +1,21 @@
-const User = require("./userModel");
-const _ = require("lodash");
-const signToken = require("../../auth").signToken;
+const User = require('./userModel');
+const merge = require('lodash/merge');
+const signToken = require('../../auth').signToken;
 
 exports.params = function(req, res, next, id) {
   User.findById(id)
-    .select("-password")
+    .select('-password')
     .exec()
     .then(
-      user => {
+      (user) => {
         if (!user) {
-          next(new Error("No user with that id"));
+          next(new Error('No user with that id'));
         } else {
           req.user = user;
           next();
         }
       },
-      err => {
+      (err) => {
         next(err);
       }
     );
@@ -23,10 +23,10 @@ exports.params = function(req, res, next, id) {
 
 exports.get = function(req, res, next) {
   User.find({})
-    .select("-password")
+    .select('-password')
     .exec((err, data) => {
       if (err) return next(err);
-      else res.json(data);
+      res.json(data);
     });
 };
 
@@ -37,25 +37,19 @@ exports.getOne = function(req, res, next) {
 
 exports.put = function(req, res, next) {
   const user = req.user;
-
   const update = req.body;
-
-  _.merge(user, update);
-
+  merge(user, update);
   user.save((err, response) => {
     if (err) {
       return next(err);
-    } else {
-      res.json(response);
     }
+    res.json(response);
   });
 };
 
 exports.post = function(req, res, next) {
   const newUser = new User(req.body);
-
   newUser.save((err, user) => {
-    console.log({ err });
     if (err) {
       next(err);
       return;

@@ -1,7 +1,13 @@
 module.exports = app =>
   app.use((err, req, res, next) => {
+    console.log({ err });
+
+    if (err.name === 'BulkWriteError') {
+      res.status(409).send({ error: 'The product title already exist.' });
+      return;
+    }
     if (err.name === 'UnauthorizedError') {
-      res.status(401).send({ error: 'Invalid token' });
+      res.status(401).send({ error: 'No authorization token was found. Please login' });
       return;
     }
     if (err.name === 'CastError') {
@@ -17,8 +23,8 @@ module.exports = app =>
       return;
     }
     if (err.name === 'ValidationError' || err.name === 'ValidatorError') {
-      res.status(409).send({ error: 'Validation failed!' });
+      res.status(409).send({ error: err.errors });
       return;
     }
-    res.status(500).send({ error: 'Something failed!' });
+    res.status(500).send({ error: 'Item not found' });
   });

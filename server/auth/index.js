@@ -1,13 +1,13 @@
-const jwt = require("jsonwebtoken");
-const expressJwt = require("express-jwt");
-const config = require("../config/config");
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
+const config = require('../config/config');
 
 const checkToken = expressJwt({ secret: config.secrets.jwt });
-const User = require("../apis/user/userModel");
+const User = require('../apis/user/userModel');
 
 exports.decodeToken = function() {
   return function(req, res, next) {
-    if (req.query && req.query.hasOwnProperty("access_token")) {
+    if (req.query && req.query.hasOwnProperty('access_token')) {
       req.headers.authorization = `Bearer ${req.query.access_token}`;
     }
 
@@ -19,7 +19,7 @@ exports.getFreshUser = function() {
   return function(req, res, next) {
     User.findById(req.user._id).exec((err, user) => {
       if (err) {
-        res.status(401).send("Unauthorized");
+        res.status(401).send('Unauthorized');
       }
       req.user = user;
       next();
@@ -33,29 +33,27 @@ exports.verifyUser = function() {
     const password = req.body.password;
 
     if (!username || !password) {
-      res.status(400).send("You need a username and password");
+      res.status(400).send('You need a username and password');
       return;
     }
 
     User.findOne({ username }).then(
-      user => {
+      (user) => {
         if (!user) {
-          res.status(401).send("No user with the given username");
+          res.status(401).send('No user with the given username');
         } else if (!user.authenticate(password)) {
-          res.status(401).send("Wrong password");
+          res.status(401).send('Wrong password');
         } else {
           req.user = user;
           next();
         }
       },
-      err => {
+      (err) => {
         next(err);
       }
     );
   };
 };
-
-console.log({ expiresInMinutes: config.expireTime });
 
 exports.signToken = function(id) {
   return jwt.sign({ _id: id }, config.secrets.jwt, {
