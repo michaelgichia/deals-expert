@@ -1,4 +1,90 @@
+/* 
+  Colors
+=====================
+1. primaryColor: #ffbf35 // yellow
+2. secondaryColor: rgb(136,136,136) // light gray
+3. fontPrimaryColor: rgb(34,34,3) // dark gray
+4. successfulColor: #ff495d // red pinkish
+5. checkedColor: #5f6ddb; // purplelish
+6. backgroundColor: #f8f8f8 // lightish gray
+7. iconsColor: #e3e3e3 // grayish
+8. greenLightColor: #cde323;
+*/
+
+/* Banner */
+/* 
+  Heart
+  ===================
+  width: 16px;
+  height: 15px;
+  border-radius: 1px;
+  background-color: #bbbbbb;
+*/
+
+/* 
+  Price
+  ==========================
+  font-size: 15px;
+  letter-spacing: 0px;
+  line-height: 19px;
+  color: rgb(34,34,34);
+  font-family: "Fjalla One";
+  text-align: right; 
+*/
+
+/* 
+  Image
+  ======================
+  width: 128px;
+  height: 128px;
+  border-radius: 16px;
+  background-color: #e3e3e3;  
+*/
+
+/* 
+  Meta-title
+  =========================
+  font-size: 12px;
+  line-height: 14px;
+  color: rgb(136,136,136);
+  font-family: "Karla";
+  text-align: center;
+*/
+
+/* 
+  Title
+  =============================
+  font-size: 15px;
+  line-height: 20px;
+  color: rgb(34,34,34);
+  font-family: "Playfair Display";
+  font-weight: bold;
+  text-align: center;  
+*/
+
+/* 
+  Rating
+  ===============================
+  width: 16px;
+  height: 15px;
+  background-color: #ffbf35;  
+*/
+
+/* 
+  Card Base
+  ==================================
+  width: 270px;
+  height: 390px;
+  background-color: #ffffff;
+*/
 body {
   margin: 0;
   padding: 0;
+}
+
+ul,
+p {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
