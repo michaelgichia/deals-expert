@@ -78,9 +78,29 @@
   background-color: #ffffff;
 */
 
+@font-face {
+  font-family: "Playfair Display"; /*  serif */
+  src: local("Playfair Display"),
+    url(./fonts/PlayfairDisplay-Black.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Karla"; /* sans-serif  */
+  src: local("Karla"), url(./fonts/Karla-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Fjalla"; /* sans-serif  */
+  src: local("Fjalla"), url(./fonts/FjallaOne-Regular.ttf) format("ttf");
+}
+
 ul,
 p {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
 }
