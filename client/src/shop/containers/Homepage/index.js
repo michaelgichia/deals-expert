@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Button } from 'antd';
-import BannerView from '../Banner/BannerView';
+import BannerView from '../BannerView';
 
 class Homepage extends Component {
   state = {
