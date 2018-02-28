@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import './globalStyles.css';
 import store, { history } from '../src/store';
-import App from '../src/containers/App';
+import App from '../src/shop/containers/App';
 import registerServiceWorker from './registerServiceWorker';
 // App
 const WithStoreApp = () => (
