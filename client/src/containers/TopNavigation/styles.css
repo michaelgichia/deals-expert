@@ -1,5 +1,16 @@
+/* Header */
 .header {
-  border-bottom: 1px solid #ffbf35;
+  text-align: center;
+  padding-bottom: 5px;
+  background: linear-gradient(
+      to left,
+      #ffbf35 0%,
+      #ffbf35 33%,
+      #ff495d 66%,
+      #ff495d 100%
+    )
+    left bottom #ffffff no-repeat;
+  background-size: 100% 1px;
 }
 
 /* Top header */
