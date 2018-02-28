@@ -1,0 +1,71 @@
+/* Carousel */
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 280px;
+  overflow: hidden;
+  min-height: 280px;
+  min-width: 100vw;
+  background-color: #35395b;
+}
+.ant-carousel .slick-vertical .slick-slide {
+  border: none;
+  border-bottom: 1px solid #35395b;
+  box-sizing: content-box;
+}
+
+/* Carousel Dots */
+.ant-carousel-vertical .slick-dots {
+  right: 50px;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  border: 1px solid #ffbf35;
+  background: none;
+}
+.ant-carousel .slick-dots li button {
+  opacity: 1;
+  border-radius: 7px;
+  border: 1px solid #fff;
+  background: none;
+}
+
+/* Carousel items */
+.banner__wrap {
+  width: 100vw;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner__wrap > img {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+}
+.banner__wrap > span {
+  z-index: 3;
+}
+.banner__wrap > span > h1 {
+  font-size: 50px;
+  font-family: "Playfair Display";
+  font-weight: bold;
+  color: #fff;
+}
+.banner__wrap > span > h6 {
+  font-size: 18px;
+  font-family: "Karla";
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+}
+
+/* Carousel Mask */
+.banner__wrap__mask {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}

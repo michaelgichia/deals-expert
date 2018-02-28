@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Button } from 'antd';
+import BannerView from '../Banner/BannerView';
 
 class Homepage extends Component {
   state = {
@@ -24,6 +25,7 @@ class Homepage extends Component {
   render() {
     return (
       <Fragment>
+        <BannerView />
         <Button type="primary">Hello wolrd</Button>
         <br />
         <p>{this.state.response}</p>
