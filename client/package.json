@@ -22,13 +22,15 @@
   },
   "proxy": "http://localhost:5000/",
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
     "build": "react-app-rewired build",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -b deploy -d build",
+    "deploy": "yarn run build && gh-pages -d build",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "start": "react-app-rewired start",

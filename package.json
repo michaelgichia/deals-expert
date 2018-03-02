@@ -21,6 +21,7 @@
   },
   "scripts": {
     "client": "cd client && yarn start",
+    "deploy": "cd client && yarn run deploy",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
