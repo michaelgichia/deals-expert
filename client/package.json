@@ -28,7 +28,7 @@
     "analyze": "source-map-explorer build/static/js/main.*",
     "build": "react-app-rewired build",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b gh-pages -d build",
+    "deploy": "gh-pages -b deploy -d build",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "start": "react-app-rewired start",

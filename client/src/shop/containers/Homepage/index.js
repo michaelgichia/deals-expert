@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import BannerView from '../BannerView';
 import FilterView from '../FilterView';
 
+
 class Homepage extends Component {
   state = {};
 
