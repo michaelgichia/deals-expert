@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   height: 40px;
-  font-size: 13px;
+  font-size: 14px;
   overflow: hidden;
 }
 
@@ -36,10 +36,9 @@
 .bottom-header-pupolar-cats > * {
   padding-right: 16px;
   color: #222203;
-}
-
-.bottom-header-pupolar-label {
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .ant-dropdown-link {

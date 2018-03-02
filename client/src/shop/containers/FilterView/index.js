@@ -15,25 +15,29 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
+function FilterTitles(title) {
+  return <span className="filter__titles">{title}</span>;
+}
+
 export default class FilterView extends Component {
   state = { disabled: false };
   render() {
     const { disabled } = this.state;
     return (
       <Collapse defaultActiveKey={['1']} onChange={callback}>
-        <Panel header={<h4>PRICE</h4>} key="1">
+        <Panel header={FilterTitles('PRICE')} key="1">
           <Slider range defaultValue={[20, 50]} disabled={disabled} />
-          <div>
+          <div className="filter__price__subs">
             <span>KSh: 20</span> <span>KSh: 120</span>
           </div>
         </Panel>
-        <Panel header={<h4>TYPE</h4>} key="21">
+        <Panel header={FilterTitles('TYPE')} key="21">
           <p>{text}</p>
         </Panel>
-        <Panel header={<h4>BRANDS</h4>} key="2">
+        <Panel header={FilterTitles('BRANDS')} key="2">
           <p>{text}</p>
         </Panel>
-        <Panel header={<h4>COLLECTIONS</h4>} key="3">
+        <Panel header={FilterTitles('COLLECTIONS')} key="3">
           <p>{text}</p>
         </Panel>
       </Collapse>

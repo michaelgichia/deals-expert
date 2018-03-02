@@ -20,7 +20,6 @@
     "redux-thunk": "^2.2.0",
     "source-map-explorer": "^1.5.0"
   },
-  "proxy": "http://localhost:5000/",
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
   },
@@ -28,7 +27,7 @@
     "analyze": "source-map-explorer build/static/js/main.*",
     "build": "react-app-rewired build",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b deploy -d build",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "start": "react-app-rewired start",

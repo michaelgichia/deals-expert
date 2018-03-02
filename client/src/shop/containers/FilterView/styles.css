@@ -1,3 +1,41 @@
 .ant-collapse-header {
   background-color: #fff;
 }
+
+/* Slider tooltip */
+.ant-slider-handle.ant-tooltip-open {
+  border-color: rgb(255, 73, 93);
+}
+
+/* Change collapse btn position */
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow {
+  left: calc(100% - 32px);
+  font-size: 13px;
+  color: #bbbbbb;
+}
+
+/* Remove extra padding */
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding: 12px 0 12px 16px;
+}
+
+/* Filters title */
+.filter__titles {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: rgb(34, 34, 34);
+  font-family: 'Fjalla one', sans-serif;
+}
+
+/* Filter sub titles */
+.filter__price__subs {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter__price__subs > span {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}

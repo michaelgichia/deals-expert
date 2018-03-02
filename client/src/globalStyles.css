@@ -48,7 +48,7 @@
   font-size: 12px;
   line-height: 14px;
   color: rgb(136,136,136);
-  font-family: "Karla";
+  font-family: "Roboto", sans-serif;
   text-align: center;
 */
 
@@ -79,20 +79,8 @@
   background-color: #ffffff;
 */
 
-@font-face {
-  font-family: "Playfair Display"; /*  serif */
-  src: local("Playfair Display"),
-    url(./fonts/PlayfairDisplay-Black.ttf) format("ttf");
-}
-
-@font-face {
-  font-family: "Karla"; /* sans-serif  */
-  src: local("Karla"), url(./fonts/Karla-Regular.ttf) format("ttf");
-}
-
-@font-face {
-  font-family: "Fjalla"; /* sans-serif  */
-  src: local("Fjalla"), url(./fonts/FjallaOne-Regular.ttf) format("ttf");
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
 ul,
@@ -103,5 +91,5 @@ p {
 }
 
 h1 {
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
 }
